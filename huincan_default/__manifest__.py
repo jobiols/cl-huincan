@@ -30,7 +30,6 @@
         'purchase',
         'mrp',
         'project',
-        'rh',
 
         # minimum modules for argentinian localizacion + utilities + fixes
         'standard_depends_ee',
