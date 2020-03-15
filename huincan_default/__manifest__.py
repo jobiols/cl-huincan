@@ -27,7 +27,6 @@
     'depends': [
         # basic applications
         'sale_management',
-        'account_invoicing',
         'purchase',
 
         # minimum modules for argentinian localizacion + utilities + fixes
