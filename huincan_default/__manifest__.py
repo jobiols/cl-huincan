@@ -86,7 +86,6 @@
         {'usr': 'oca', 'repo': 'queue', 'branch': '12.0'},
         {'usr': 'oca', 'repo': 'operating-unit', 'branch': '12.0'},
     ],
-    
     'docker': [
         {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-ent', 'ver': '12.0e'},
         {'name': 'postgres', 'usr': 'postgres', 'ver': '10.1-alpine'},
