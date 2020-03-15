@@ -1,6 +1,6 @@
 # -----------------------------------------------------------------------------
 #
-#    Copyright (C) 2019  jeo Software  (http://www.jeosoft.com.ar)
+#    Copyright (C) 2020  jeo Software  (http://www.jeosoft.com.ar)
 #    All Rights Reserved.
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 # -----------------------------------------------------------------------------
 {
     'name': 'huincan',
-    'version': '12.0.0.0.0',
+    'version': '12.0e.0.0.0',
     'license': 'Other OSI approved licence',
     'category': 'Default Application',
     'summary': 'Customization for huincan',
@@ -31,10 +31,7 @@
         'purchase',
 
         # minimum modules for argentinian localizacion + utilities + fixes
-        # 'standard_depends',
-
-        # utilitarios adicionales
-        'backend_theme_v11',
+        'standard_depends_ee',
     ],
     'data': [
     ],
@@ -49,16 +46,8 @@
     # Here begins docker-odoo-environment manifest
     # --------------------------------------------
 
-    # if Enterprise it installs in a different directory than community
-    'Enterprise': False,
-
     # port where odoo starts serving pages
     'port': '8069',
-
-    # syntax version of repos and images
-    'env_ver': 1,
-
-    # example repos version 1
     'repos': [
         {'usr': 'jobiols', 'repo': 'cl-huincan', 'branch': '12.0'},
         {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '12.0'},
@@ -94,29 +83,13 @@
         {'usr': 'oca', 'repo': 'stock-logistics-reporting', 'branch': '12.0'},
         {'usr': 'oca', 'repo': 'stock-logistics-workflow', 'branch': '12.0'},
         {'usr': 'oca', 'repo': 'queue', 'branch': '12.0'},
+        {'usr': 'oca', 'repo': 'operating-unit', 'branch': '12.0'},
     ],
-
-    # example images version 1
+    
     'docker': [
-        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-jeo', 'ver': '12.0'},
+        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-ent', 'ver': '12.0e'},
         {'name': 'postgres', 'usr': 'postgres', 'ver': '10.1-alpine'},
         {'name': 'nginx', 'usr': 'nginx', 'ver': 'latest'},
         {'name': 'aeroo', 'usr': 'adhoc', 'img': 'aeroo-docs'},
     ],
-
-    # example repos version 2
-    # Note that the branch of the repo to download is taken from the module
-    # version
-    'git-repos': [
-        'https://github.com/jobiols/cl-huincan.git',
-        'https://github.com/jobiols/odoo-addons.git',
-        'https://github.com/jobiols/adhoc-odoo-argentina.git',
-    ],
-
-    # example images version 2
-    'docker-images': [
-        {'img': 'jobiols/odoo-jeo:12.0', 'name': 'odoo'},
-        {'img': 'postgres:11.1-alpine', 'name': 'postgres'},
-        {'img': 'adhoc/aeroo', 'name': 'aeroo'},
-    ]
 }
