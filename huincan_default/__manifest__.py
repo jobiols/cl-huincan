@@ -79,7 +79,6 @@
         'https://github.com/ingadhoc/product.git',
         'https://github.com/ingadhoc/stock.git',
         'https://github.com/ingadhoc/account-invoicing.git',
-        'https://github.com/ingadhoc/patches.git',
         'https://github.com/ingadhoc/multi-company.git',
 
         'https://github.com/oca/partner-contact.git',
