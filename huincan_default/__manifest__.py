@@ -76,7 +76,6 @@
         'https://github.com/ingadhoc/reporting-engine.git',
         'https://github.com/ingadhoc/aeroo_reports.git',
         'https://github.com/ingadhoc/sale.git',
-        'https://github.com/ingadhoc/odoo-support.git',
         'https://github.com/ingadhoc/product.git',
         'https://github.com/ingadhoc/stock.git',
         'https://github.com/ingadhoc/account-invoicing.git',
