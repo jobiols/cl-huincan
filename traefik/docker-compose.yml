@@ -35,8 +35,8 @@ services:
       - traefik.http.routers.rou-odoo.rule=Host(`huincan.cumbre.net`)
       - traefik.http.routers.rou-odoo.entrypoints=web
 
-      - traefik.http.routers.rou-chat.rule=Host(`huincan.cumbre.net`) && PathPrefix(`/longpolling`)
-      - traefik.http.routers.rou-chat.entrypoints=web
+      #- traefik.http.routers.rou-chat.rule=Host(`huincan.cumbre.net`) && PathPrefix(`/longpolling`)
+      #- traefik.http.routers.rou-chat.entrypoints=web
 
       # comprime las paginas.
       - traefik.http.middlewares.compress.compress=true
@@ -51,20 +51,21 @@ services:
       - traefik.http.routers.rou-odoo-secure.tls=true
       - traefik.http.routers.rou-odoo-secure.tls.certresolver=le
       - traefik.http.routers.rou-odoo-secure.entrypoints=websecure
+
       # redirecciona al puerto 8069 de odoo
       - traefik.http.routers.rou-odoo-secure.service=srv-odoo-secure
       - traefik.http.services.srv-odoo-secure.loadbalancer.server.port=8069
 
-      - traefik.http.routers.rou-chat-secure.rule=Host(`huincan.cumbre.net`) && PathPrefix(`/longpolling`)
-      - traefik.http.routers.rou-chat-secure.tls=true
-      - traefik.http.routers.rou-chat-secure.tls.certresolver=le
-      - traefik.http.routers.rou-chat-secure.entrypoints=websecure
+#      - traefik.http.routers.rou-chat-secure.rule=Host(`huincan.cumbre.net`) && PathPrefix(`/longpolling`)
+#      - traefik.http.routers.rou-chat-secure.tls=true
+#      - traefik.http.routers.rou-chat-secure.tls.certresolver=le
+#      - traefik.http.routers.rou-chat-secure.entrypoints=websecure
       # redirecciona al puerto 8072
-      - traefik.http.routers.rou-chat-secure.service=srv-chat-secure
-      - traefik.http.services.srv-chat-secure.loadbalancer.server.port=8072
+#      - traefik.http.routers.rou-chat-secure.service=srv-chat-secure
+#      - traefik.http.services.srv-chat-secure.loadbalancer.server.port=8072
 
   traefik:
-    image: traefik:2.2.0
+    image: traefik:2.0.4
     container_name: traefik
     restart: unless-stopped
     command:
