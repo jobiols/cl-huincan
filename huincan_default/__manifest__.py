@@ -19,7 +19,7 @@
 # -----------------------------------------------------------------------------
 {
     'name': 'huincan',
-    'version': '12.0e.0.0.0',
+    'version': '13.0.0.0.0',
     'license': 'Other OSI approved licence',
     'category': 'Default Application',
     'summary': 'Customization for huincan',
@@ -32,7 +32,7 @@
         'project',
 
         # minimum modules for argentinian localizacion + utilities + fixes
-        'standard_depends_ee',
+        #'standard_depends_ee',
     ],
     'data': [
     ],
@@ -45,53 +45,66 @@
 
     #
     # Here begins docker-odoo-environment manifest
-    # --------------------------------------------
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    'limit_request': '8196',
+    'limit_memory_soft': '640000000',
+    'limit_memory_hard': '760000000',
+    'limit_time_cpu': '60',
+    'limit_time_real': '120',
+
+    # manifest version, if omitted it is backward compatible
+    'env-ver': '2',
+
+    # if Enterprise it installs in a different directory than community
+    'license': 'EE',
 
     # port where odoo starts serving pages
     'port': '8069',
-    'repos': [
-        {'usr': 'jobiols', 'repo': 'cl-huincan', 'branch': '12.0'},
-        {'usr': 'jobiols', 'repo': 'odoo-addons', 'branch': '12.0'},
 
-        {'usr': 'ingadhoc', 'repo': 'odoo-argentina', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'argentina-sale', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'account-financial-tools',
-         'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'account-payment', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'miscellaneous', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'argentina-reporting',
-         'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'reporting-engine', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'aeroo_reports', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'sale', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'odoo-support', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'product', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'stock', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'account-invoicing', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'patches', 'branch': '12.0'},
-        {'usr': 'ingadhoc', 'repo': 'multi-company', 'branch': '12.0'},
+    # list of url repos to install in the form 'repo-url directory'
+    'git-repos': [
+        'https://github.com/jobiols/cl-huincan.git',
 
-        {'usr': 'oca', 'repo': 'partner-contact', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'web', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'server-tools', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'social', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'server-ux', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'server-brand', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'manufacture', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'manufacture-reporting', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'management-system', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'sale-workflow', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'stock-logistics-warehouse', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'stock-logistics-reporting', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'stock-logistics-workflow', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'queue', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'operating-unit', 'branch': '12.0'},
-        {'usr': 'oca', 'repo': 'multi-company', 'branch': '12.0'},
+        'https://github.com/jobiols/odoo-addons.git',
+        'https://github.com/ingadhoc/odoo-argentina.git',
+        'https://github.com/ingadhoc/argentina-sale.git',
+        'https://github.com/ingadhoc/account-financial-tools.git',
+        'https://github.com/ingadhoc/account-payment.git',
+        'https://github.com/ingadhoc/miscellaneous.git',
+        'https://github.com/ingadhoc/argentina-reporting.git',
+        'https://github.com/ingadhoc/reporting-engine.git',
+        'https://github.com/ingadhoc/aeroo_reports.git',
+        'https://github.com/ingadhoc/sale.git',
+        'https://github.com/ingadhoc/odoo-support.git',
+        'https://github.com/ingadhoc/product.git',
+        'https://github.com/ingadhoc/stock.git',
+        'https://github.com/ingadhoc/account-invoicing.git',
+        'https://github.com/ingadhoc/patches.git',
+        'https://github.com/ingadhoc/multi-company.git',
+
+        'https://github.com/oca/partner-contact.git',
+        'https://github.com/oca/web.git',
+        'https://github.com/oca/server-tools.git',
+        'https://github.com/oca/social.git',
+        'https://github.com/oca/server-ux.git',
+        'https://github.com/oca/server-brand.git',
+        'https://github.com/oca/manufacture.git',
+        'https://github.com/oca/manufacture-reporting.git',
+        'https://github.com/oca/management-system.git',
+        'https://github.com/oca/sale-workflow.git',
+        'https://github.com/oca/stock-logistics-warehouse.git',
+        'https://github.com/oca/stock-logistics-reporting.git',
+        'https://github.com/oca/stock-logistics-workflow.git',
+        'https://github.com/oca/queue.git',
+        'https://github.com/oca/operating-unit.git',
+        'https://github.com/oca/multi-company.git'
     ],
-    'docker': [
-        {'name': 'odoo', 'usr': 'jobiols', 'img': 'odoo-ent', 'ver': '12.0e'},
-        {'name': 'postgres', 'usr': 'postgres', 'ver': '10.1-alpine'},
-        {'name': 'nginx', 'usr': 'nginx', 'ver': 'latest'},
-        {'name': 'aeroo', 'usr': 'adhoc', 'img': 'aeroo-docs'},
-    ],
+
+    # list of images to use in the form 'name image-url'
+    'docker-images': [
+        'odoo jobiols/odoo-ent:13.0e',
+        'postgres postgres:10.1-alpine',
+        'nginx nginx'
+    ]
 }
