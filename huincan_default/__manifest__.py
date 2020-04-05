@@ -18,7 +18,7 @@
 #
 # -----------------------------------------------------------------------------
 {
-    'name': 'huincan',
+    'name': 'Huincan',
     'version': '13.0.0.0.0',
     'license': 'Other OSI approved licence',
     'category': 'Default Application',
@@ -32,7 +32,7 @@
         'project',
 
         # minimum modules for argentinian localizacion + utilities + fixes
-        #'standard_depends_ee',
+        'standard_depends_ee',
     ],
     'data': [
     ],
