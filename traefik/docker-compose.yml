@@ -16,7 +16,7 @@ services:
 
   sv-odoo:
     image: jobiols/odoo-ent:13.0e
-    container_name: nm-odoo
+    container_name: odoo-ee
     restart: unless-stopped
     volumes:
       - /odoo_ar/odoo-13.0e/huincan/config:/opt/odoo/etc/
