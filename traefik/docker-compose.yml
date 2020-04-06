@@ -4,6 +4,31 @@
 version: '3.5'
 
 services:
+  traefik:
+    image: traefik:2.0.4
+    container_name: traefik
+    restart: unless-stopped
+    command:
+      - --entrypoints.web.address=:80
+      - --entryPoints.websecure.address=:443
+      - --log.level=INFO
+      - --log.format=json
+      - --providers.docker
+#      - --api.insecure
+      - --certificatesresolvers.le.acme.email=jorge.obiols@gmail.com
+      - --certificatesresolvers.le.acme.storage=/opt/traefik/acme.json
+      - --certificatesresolvers.le.acme.httpChallenge=true
+      - --certificatesresolvers.le.acme.httpChallenge.entryPoint=web
+        # quitar esto para pasarlo a produccion
+      - --certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+    ports:
+      - "80:80"
+#      - "8080:8080"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /odoo_ar/traefik/acme.json:/opt/traefik/acme.json
+
   pg-huincan:
     image: postgres:10.1-alpine
     container_name: pg-huincan
@@ -63,28 +88,3 @@ services:
       # redirecciona al puerto 8072
 #      - traefik.http.routers.rou-chat-secure.service=srv-chat-secure
 #      - traefik.http.services.srv-chat-secure.loadbalancer.server.port=8072
-
-  traefik:
-    image: traefik:2.0.4
-    container_name: traefik
-    restart: unless-stopped
-    command:
-      - --entrypoints.web.address=:80
-      - --entryPoints.websecure.address=:443
-      - --log.level=INFO
-      - --log.format=json
-      - --providers.docker
-#      - --api.insecure
-      - --certificatesresolvers.le.acme.email=jorge.obiols@gmail.com
-      - --certificatesresolvers.le.acme.storage=/opt/traefik/acme.json
-      - --certificatesresolvers.le.acme.httpChallenge=true
-      - --certificatesresolvers.le.acme.httpChallenge.entryPoint=web
-        # quitar esto para pasarlo a produccion
-      - --certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
-    ports:
-      - "80:80"
-#      - "8080:8080"
-      - "443:443"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /odoo_ar/traefik/acme.json:/opt/traefik/acme.json
