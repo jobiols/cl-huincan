@@ -1,0 +1,47 @@
+# whoami insecure
+# creado con el tuto, funciona ok
+
+version: "3.3"
+
+services:
+  traefik:
+    image: "traefik:v2.2.0"
+    container_name: traefik
+    command:
+      - --entrypoints.web.address=:80
+        #      - --entrypoints.websecure.address=:443
+      - --providers.docker
+        #      - --api.insecure
+        #      - --certificatesresolvers.leres.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+        #      - --certificatesresolvers.leres.acme.email=jorge.obiols@gmail.com
+        #      - --certificatesresolvers.leres.acme.storage=/opt/traefik/acme.json
+        #      - --certificatesresolvers.leres.acme.httpchallenge=true
+        #      - --certificatesresolvers.leres.acme.httpchallenge.entryPoint=web
+      - --log.level=INFO
+        #      - --log.format=json
+      - --accesslog=true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+#     - /odoo_ar/traefik/acme.json:/opt/traefik/acme.json
+
+  whoami:
+    image: containous/whoami:v1.3.0
+    container_name: whoami
+    labels:
+
+#      - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+#      - traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true
+#      - traefik.http.routers.whoami.middlewares=redirect-to-https@docker
+
+      - traefik.http.routers.whoami.rule=Host(`huincan.cumbre.net`)
+      - traefik.http.routers.whoami.entrypoints=web
+
+#      - traefik.http.routers.whoami-secure.rule=Host(`botellasas.com`)
+#      - traefik.http.routers.whoami-secure.tls=true
+#      - traefik.http.routers.whoami-secure.tls.certresolver=leres
+#      - traefik.http.routers.whoami-secure.entrypoints=websecure
+
