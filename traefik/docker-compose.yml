@@ -20,7 +20,7 @@ services:
       - --certificatesresolvers.le.acme.httpChallenge=true
       - --certificatesresolvers.le.acme.httpChallenge.entryPoint=web
         # quitar esto para pasarlo a produccion
-      - --certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+#      - --certificatesresolvers.le.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
     ports:
       - "80:80"
 #      - "8080:8080"
