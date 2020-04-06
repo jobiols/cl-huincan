@@ -1,0 +1,22 @@
+# whoami primer ejemplo
+# trae whoami al poner localhost en el browser.
+
+version: "3.3"
+
+services:
+  traefik:
+    image: "traefik:v2.2.0"
+    container_name: traefik
+    command:
+      - --providers.docker
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  whoami:
+    image: containous/whoami
+    container_name: whoami
+    labels:
+      # cada request que machea localhost va a parar a este servicio
+      - traefik.http.routers.whoami.rule=Host(`huincan.cumbre.net`)
