@@ -20,8 +20,3 @@ services:
     labels:
       # cada request que machea localhost va a parar a este servicio
       - traefik.http.routers.whoami.rule=Host(`localhost`) && PathPrefix(`/foo`)
-
-  gitea:
-    image: gitea/gitea
-    labels:
-      - traefik.http.routers.gitserver.rule=Host(`localhost`) && PathPrefix(`/gitserver`)

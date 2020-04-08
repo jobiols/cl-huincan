@@ -1,5 +1,5 @@
 # whoami primer ejemplo
-# trae whoami al poner localhost en el browser.
+# probado en makeover funciona ok.
 
 version: "3.3"
 
@@ -19,4 +19,4 @@ services:
     container_name: whoami
     labels:
       # cada request que machea localhost va a parar a este servicio
-      - traefik.http.routers.whoami.rule=Host(`huincan.cumbre.net`)
+      - traefik.http.routers.whoami.rule=Host(`odoo.makeoverlab.com.ar`)

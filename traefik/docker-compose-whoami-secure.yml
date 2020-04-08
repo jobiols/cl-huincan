@@ -1,5 +1,5 @@
 # whoami secure
-# creado con el tuto, funciona ok
+# probado en makeover funciona ok
 
 version: "3.3"
 
@@ -19,7 +19,7 @@ services:
 
       - --certificatesresolvers.leres.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
 
-      - --log.level=DEBUG
+      - --log.level=INFO
       - --log.format=json
       - --accesslog=true
     ports:
@@ -31,18 +31,19 @@ services:
       - "/odoo_ar/traefik/acme.json:/opt/traefik/acme.json"
 
   whoami:
-    image: containous/whoami:v1.3.0
+    image: containous/whoami
     labels:
 
       - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
       - traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true
       - traefik.http.routers.whoami.middlewares=redirect-to-https@docker
 
-      - traefik.http.routers.whoami.rule=Host(`botellasas.com`)
+      - traefik.http.routers.whoami.rule=Host(`odoo.makeoverlab.com.ar`)
       - traefik.http.routers.whoami.entrypoints=web
 
-      - traefik.http.routers.whoami-secure.rule=Host(`botellasas.com`)
+      - traefik.http.routers.whoami-secure.rule=Host(`odoo.makeoverlab.com.ar`)
       - traefik.http.routers.whoami-secure.tls=true
       - traefik.http.routers.whoami-secure.tls.certresolver=leres
       - traefik.http.routers.whoami-secure.entrypoints=websecure
+
 
