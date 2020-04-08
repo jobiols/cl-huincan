@@ -25,11 +25,26 @@
     'summary': 'Customization for huincan',
     'author': 'jeo Software',
     'depends': [
-        # basic applications
-        'sale_management',
+        # Installed apps
         'purchase',
+        'stock',
+        'sale',
+        'account',
+        'account_accountant',
         'mrp',
+        'mrp_plm',
+        'quality_control',
+        'maintenance',
+        'crm',
         'project',
+        'hr',
+        'sale_renting',
+        'documents',
+        'documents_hr_holidays',
+        'hr_timesheet',
+        'sale_management',
+        'hr_recruitment',
+        'sale_renting',
 
         # minimum modules for argentinian localizacion + utilities + fixes
         'standard_depends_ee',
@@ -57,7 +72,7 @@
     'env-ver': '2',
 
     # if Enterprise it installs in a different directory than community
-    'license': 'EE',
+    'odoo-license': 'EE',
 
     # port where odoo starts serving pages
     'port': '8069',
@@ -65,38 +80,39 @@
     # list of url repos to install in the form 'repo-url directory'
     'git-repos': [
         'https://github.com/jobiols/cl-huincan.git',
-
         'https://github.com/jobiols/odoo-addons.git',
-        'https://github.com/ingadhoc/odoo-argentina.git',
-        'https://github.com/ingadhoc/argentina-sale.git',
-        'https://github.com/ingadhoc/account-financial-tools.git',
-        'https://github.com/ingadhoc/account-payment.git',
-        'https://github.com/ingadhoc/miscellaneous.git',
-        'https://github.com/ingadhoc/argentina-reporting.git',
-        'https://github.com/ingadhoc/reporting-engine.git',
-        'https://github.com/ingadhoc/aeroo_reports.git',
-        'https://github.com/ingadhoc/sale.git',
-        'https://github.com/ingadhoc/product.git',
-        'https://github.com/ingadhoc/stock.git',
-        'https://github.com/ingadhoc/account-invoicing.git',
-        'https://github.com/ingadhoc/multi-company.git',
 
-        'https://github.com/oca/partner-contact.git',
-        'https://github.com/oca/web.git',
-        'https://github.com/oca/server-tools.git',
-        'https://github.com/oca/social.git',
-        'https://github.com/oca/server-ux.git',
-        'https://github.com/oca/server-brand.git',
-        'https://github.com/oca/manufacture.git',
-        'https://github.com/oca/manufacture-reporting.git',
-        'https://github.com/oca/management-system.git',
-        'https://github.com/oca/sale-workflow.git',
-        'https://github.com/oca/stock-logistics-warehouse.git',
-        'https://github.com/oca/stock-logistics-reporting.git',
-        'https://github.com/oca/stock-logistics-workflow.git',
-        'https://github.com/oca/queue.git',
-        'https://github.com/oca/operating-unit.git',
-        'https://github.com/oca/multi-company.git'
+        'https://github.com/ingadhoc/odoo-argentina.git',
+        'https://github.com/ingadhoc/account-payment.git',
+        'https://github.com/ingadhoc/account-financial-tools.git',
+
+#        'https://github.com/ingadhoc/argentina-sale.git',
+#        'https://github.com/ingadhoc/miscellaneous.git',
+#        'https://github.com/ingadhoc/argentina-reporting.git',
+#        'https://github.com/ingadhoc/reporting-engine.git',
+#        'https://github.com/ingadhoc/aeroo_reports.git',
+#        'https://github.com/ingadhoc/sale.git',
+#        'https://github.com/ingadhoc/product.git',
+#        'https://github.com/ingadhoc/stock.git',
+#        'https://github.com/ingadhoc/account-invoicing.git',
+#        'https://github.com/ingadhoc/multi-company.git',
+
+#        'https://github.com/oca/partner-contact.git',
+#        'https://github.com/oca/web.git',
+#        'https://github.com/oca/server-tools.git',
+#        'https://github.com/oca/social.git',
+#        'https://github.com/oca/server-ux.git',
+#        'https://github.com/oca/server-brand.git',
+#        'https://github.com/oca/manufacture.git',
+#        'https://github.com/oca/manufacture-reporting.git',
+#        'https://github.com/oca/management-system.git',
+#        'https://github.com/oca/sale-workflow.git',
+#        'https://github.com/oca/stock-logistics-warehouse.git',
+#        'https://github.com/oca/stock-logistics-reporting.git',
+#        'https://github.com/oca/stock-logistics-workflow.git',
+#        'https://github.com/oca/queue.git',
+#        'https://github.com/oca/operating-unit.git',
+#        'https://github.com/oca/multi-company.git'
     ],
 
     # list of images to use in the form 'name image-url'
