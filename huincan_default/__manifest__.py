@@ -19,13 +19,13 @@
 # -----------------------------------------------------------------------------
 {
     'name': 'Huincan',
-    'version': '13.0.0.0.0',
+    'version': '13.0.0.0',
     'license': 'Other OSI approved licence',
     'category': 'Default Application',
     'summary': 'Customization for huincan',
     'author': 'jeo Software',
     'depends': [
-        # Installed apps
+        # Installed TOTAL 128 modulos instalados
         'purchase',
         'stock',
         'sale',
