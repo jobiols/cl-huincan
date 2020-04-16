@@ -85,6 +85,8 @@
         'https://github.com/ingadhoc/odoo-argentina.git',
         'https://github.com/ingadhoc/account-payment.git',
         'https://github.com/ingadhoc/account-financial-tools.git',
+        # agregado a pedido de mario, antes habia 128 modulos instalados
+        'https://github.com/oca/knowledge.git',
 
 #        'https://github.com/ingadhoc/argentina-sale.git',
 #        'https://github.com/ingadhoc/miscellaneous.git',
