@@ -87,6 +87,7 @@
         'https://github.com/ingadhoc/account-financial-tools.git',
         # agregado a pedido de mario, antes habia 128 modulos instalados
         'https://github.com/oca/knowledge.git',
+        'https://github.com/oca/operating-unit.git',
 
 #        'https://github.com/ingadhoc/argentina-sale.git',
 #        'https://github.com/ingadhoc/miscellaneous.git',
@@ -113,7 +114,6 @@
 #        'https://github.com/oca/stock-logistics-reporting.git',
 #        'https://github.com/oca/stock-logistics-workflow.git',
 #        'https://github.com/oca/queue.git',
-#        'https://github.com/oca/operating-unit.git',
 #        'https://github.com/oca/multi-company.git'
     ],
 
