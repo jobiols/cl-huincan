@@ -45,6 +45,7 @@
         'sale_management',
         'hr_recruitment',
         'sale_renting',
+        'account_operating_unit',
 
         # minimum modules for argentinian localizacion + utilities + fixes
         'standard_depends_ee',
